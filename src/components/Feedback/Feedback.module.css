@@ -1,0 +1,13 @@
+.feedback {
+  padding: 10px;
+  font-size: 24px;
+}
+.good {
+  color: green;
+}
+.neutral {
+  color: orange;
+}
+.bad {
+  color: red;
+}
