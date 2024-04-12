@@ -3,15 +3,15 @@ import { useState } from 'react';
 import ContactList from '../ContactList/ContactList';
 import SearchBox from '../SearchBox/SearchBox';
 import css from './App.module.css';
-import contacts from '../../contacts.json';
+import initialContacts from '../../contacts.json';
 
 export default function App() {
-  // const [contacts, setContacts] = useState(initsalContacts);
+  const [contacts, setContacts] = useState(initialContacts);
   // const addContact = newContact => {};
   const [search, setSearch] = useState('');
 
   const searchResult = contacts.filter(contact =>
-    contact.text.toLowerCase().includes(search.toLowerCase())
+    contact.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (

@@ -7,14 +7,14 @@
   display: flex;
   padding: 10px;
   margin-bottom: 16px;
+  justify-content: space-between;
 }
 .btnDelete {
-  margin-left: 80px;
+  margin-top: auto;
+  margin-bottom: auto;
   width: 100px;
   height: 40px;
   padding: 6px;
-  margin-top: auto;
-  margin-bottom: auto;
   border-radius: 10px;
   border: 1px solid gray;
 }
