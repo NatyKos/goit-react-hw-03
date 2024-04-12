@@ -4,16 +4,20 @@ import css from './Contact.module.css';
 
 export default function Contact({ contactItem: { name, number } }) {
   return (
-    <div>
-      <p className={css.name}>
-        <IoPersonSharp />
-        {name}
-      </p>
-      <p>
-        <FaPhoneAlt />
-        {number}
-      </p>
-      <button type="button">Delete</button>
+    <div className={css.contactCard}>
+      <div>
+        <p>
+          <IoPersonSharp className={css.icon} />
+          {name}
+        </p>
+        <p>
+          <FaPhoneAlt className={css.icon} />
+          {number}
+        </p>
+      </div>
+      <button type="button" className={css.btnDelete}>
+        Delete
+      </button>
     </div>
   );
 }
