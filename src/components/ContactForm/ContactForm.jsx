@@ -4,6 +4,7 @@ import { useId } from 'react';
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 
+// VALIDATION
 const UserSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, 'Min 3 chars!')
@@ -12,6 +13,7 @@ const UserSchema = Yup.object().shape({
   number: Yup.number().required('Is required!'),
 });
 
+// FORM
 export default function ContactForm({ onAdd }) {
   const nameFieldId = useId();
   const numberFieldId = useId();
