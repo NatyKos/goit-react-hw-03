@@ -31,7 +31,7 @@ export default function App() {
   // SEARCHING CONTACTS
   const [search, setSearch] = useState('');
   const searchResult = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(search.toLowerCase())
+    contact.name.toLowerCase().includes(search.toLowerCase().trim())
   );
 
   return (

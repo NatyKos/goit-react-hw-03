@@ -9,8 +9,9 @@ const UserSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, 'Min 3 chars!')
     .required('Is required!')
-    .max(50, 'Max 50 chars!'),
-  number: Yup.number().required('Is required!'),
+    .max(50, 'Max 50 chars!')
+    .trim(),
+  number: Yup.number().required('Is required!').positive(),
 });
 
 // FORM
@@ -25,7 +26,7 @@ export default function ContactForm({ onAdd }) {
   };
   return (
     <Formik
-      initialValues={{ name: '', number: '', id: '' }}
+      initialValues={{ id: '', name: '', number: '' }}
       onSubmit={newContact}
       validationSchema={UserSchema}
     >
