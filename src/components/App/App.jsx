@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
@@ -8,7 +8,16 @@ import initialContacts from '../../contacts.json';
 
 export default function App() {
   const [contacts, setContacts] = useState(initialContacts);
-  // const addContact = newContact => {};
+  const addContact = newContact => {
+    setContacts(prevContacts => {
+      return [...prevContacts, newContact];
+    });
+  };
+  const deleteContact = contactId => {
+    setContacts(prevContacts => {
+      return prevContacts.filter(contact => contact.id !== contactId);
+    });
+  };
   const [search, setSearch] = useState('');
 
   const searchResult = contacts.filter(contact =>
@@ -18,9 +27,9 @@ export default function App() {
   return (
     <div className={css.container}>
       <h1 className={css.title}>Phonebook</h1>
-      <ContactForm />
+      <ContactForm onAdd={addContact} />
       <SearchBox value={search} onSearch={setSearch} />
-      <ContactList contacts={searchResult} />
+      <ContactList contacts={searchResult} onDelete={deleteContact} />
     </div>
   );
 }
