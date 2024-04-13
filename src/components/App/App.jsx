@@ -8,10 +8,7 @@ import initialContacts from '../../contacts.json';
 export default function App() {
   const [contacts, setContacts] = useState(() => {
     const savedContacts = localStorage.getItem('contacts');
-    if (savedContacts) {
-      return JSON.parse(savedContacts);
-    }
-    return initialContacts;
+    return savedContacts !== '[]' ? JSON.parse(savedContacts) : initialContacts;
   });
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
